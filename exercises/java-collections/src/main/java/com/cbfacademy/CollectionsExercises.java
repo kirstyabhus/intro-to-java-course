@@ -6,24 +6,46 @@ public class CollectionsExercises {
 
     public LinkedList<Integer> useLinkedList() {
         // TODO: create an empty linked list
+        LinkedList<Integer> integers = new LinkedList<>();
+
         //  - add 4 as the first element of the list
+        integers.addFirst(4);
         //  - then add 5, 6, 8, 2, 9 to the the list
+        integers.add(5);
+        integers.add(6);
+        integers.add(8);
+        integers.add(2);
+        integers.add(9);
         //  - add another 2 as the last element of the list
+        integers.addLast(2);
         //  - add 4 as the 3rd element of the list
+        integers.add(2,4);
         //  - invoke the method element() on the list and print the result on the screen
+        System.out.println(integers.element());
         //  - return the list
-        throw new RuntimeException("Not implemented");
+        return integers;
+
     }
 
     public Stack<Integer> useStack() {
         // TODO: create an empty stack
+        Stack<Integer> integersStack = new Stack<>();
         //  - add 5, 6, 8, 9 to the the stack
+        integersStack.add(5);
+        integersStack.add(6);
+        integersStack.add(8);
+        integersStack.add(9);
         //  - print the first element of the stack on the screen
+        System.out.print(integersStack.firstElement());
         //  - print the last element of the stack on the screen
+        System.out.print(integersStack.lastElement());
         //  - invoke the method pop() on the stack and print the result on the screen
+        System.out.print(integersStack.pop());
         //  - invoke the push(4) method on the stack
+        integersStack.push(4);
         //  - return the stack
-        throw new RuntimeException("Not implemented");
+        return integersStack;
+        
     }
 
     public ArrayDeque<Integer> useArrayDeque() {
