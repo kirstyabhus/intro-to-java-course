@@ -47,7 +47,7 @@ public class CollectionsExercises {
         return integersStack;
         
     }
-
+//
     public ArrayDeque<Integer> useArrayDeque() {
         // TODO: create an empty arrayDeque
         ArrayDeque<Integer> intDeque = new ArrayDeque<>();
@@ -57,13 +57,13 @@ public class CollectionsExercises {
         intDeque.add(8);
         intDeque.add(9);
         //  - print the first element of the queue on the screen
-        System.out.println(intDeque.getFirst());
+        System.out.print(intDeque.getFirst());
         //  - print the last element of the queue on the screen
-        System.out.println(intDeque.getLast());
+        System.out.print(intDeque.getLast());
         //  - invoke the method poll() on the queue and print the result on the screen
-        System.out.println(intDeque.poll());
+        System.out.print(intDeque.poll());
         //  - invoke the element() method on the queue and print the result on the screen
-        System.out.println(intDeque.element());
+        System.out.print(intDeque.element());
         //  - return the queue
         return intDeque;
     }
