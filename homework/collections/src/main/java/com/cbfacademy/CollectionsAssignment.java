@@ -2,7 +2,11 @@ package com.cbfacademy;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.HashMap;
 
 public class CollectionsAssignment {
 
@@ -17,6 +21,8 @@ public class CollectionsAssignment {
     public static void removeSmallInts(List<Integer> list, int minValue) {
         // Your solution must traverse the list from last to first element
         // removing any values less than minValue.
+        list.removeIf(x -> (x < minValue));
+    
     }
 
     /**
@@ -28,7 +34,15 @@ public class CollectionsAssignment {
      */
     public static boolean containsDuplicates(Collection<Integer> integers) {
         // Your solution must not use any loops.
-        return false;
+        // create set from given collection
+        Set<Integer> integersSet = new HashSet<>(integers);
+        
+        // sets cannot contain duplicates, so turning to set will remove duplicates
+        if (integers.size() != integersSet.size()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -48,7 +62,16 @@ public class CollectionsAssignment {
      */
     public static ArrayList<Integer> inEither(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
-        return new ArrayList<Integer>();
+        // convert the collections to Sets
+        Set<Integer> ints1Set = new HashSet<>(ints1);
+        Set<Integer> ints2Set = new HashSet<>(ints2);
+
+
+        // adds all elements from ints2 set into ints1 set IF THEY ARE NOT ALREADY IN THE SET
+        // i.e. no duplicates will be added
+        ints1Set.addAll(ints2Set);
+
+        return new ArrayList<Integer>(ints1Set);
     }
 
     /**
@@ -66,7 +89,14 @@ public class CollectionsAssignment {
      */
     public static ArrayList<Integer> inBoth(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
-        return new ArrayList<>();
+        Set<Integer> ints1Set = new HashSet<>(ints1);
+        Set<Integer> ints2Set = new HashSet<>(ints2);
+
+        // keeps only elements in ints1Set that are also present in ints2 set
+        ints1Set.retainAll(ints2Set);
+
+        // return set as ArrayList
+        return new ArrayList<>(ints1Set);
     }
 
     /**
@@ -80,12 +110,33 @@ public class CollectionsAssignment {
      * @return the most frequently occurring String
      */
     public static String mostFrequent(List<String> list) {
+
+        if (list.size() == 0) {
+            return "";
+        }
+
+        HashMap<String, Integer> stringCount = new HashMap<>();
+
         // You should solve this problem in two stages: First iterate through
-        // the list to count occurrences of each String. Then iterate through
+        // the list to count occurrences of each String.
+        for (String s : list) {
+            stringCount.compute(s, (key, val) -> (val == null) ? 1 : val+1);
+        }
+        
+        // store the max value from the values in the count Map
+        ArrayList<Integer> mapValues = new ArrayList<>(stringCount.values());
+        // Integer maxValue = Collections.max(stringCount.values());
+        Integer maxValue = Collections.max(mapValues);
+
+        for (String s : list) {
+            if (stringCount.get(s).equals(maxValue)) {
+                return s;
+            }
+        }
+        // Then iterate through
         // your counts to find the largest. You'll need a collection that allows
         // you to store a mapping from Strings to counts.
         // No nested loops or non-enhanced for-loops are allowed.
-        return "";
     }
 
     public static String getName() {
