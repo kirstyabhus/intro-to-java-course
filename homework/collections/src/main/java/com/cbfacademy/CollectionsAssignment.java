@@ -35,7 +35,7 @@ public class CollectionsAssignment {
     public static boolean containsDuplicates(Collection<Integer> integers) {
         // Your solution must not use any loops.
         // create set from given collection
-        Set<Integer> integersSet = new HashSet<>(integers);
+        HashSet<Integer> integersSet = new HashSet<>(integers);
         
         // sets cannot contain duplicates, so turning to set will remove duplicates
         if (integers.size() != integersSet.size()) {
@@ -129,10 +129,12 @@ public class CollectionsAssignment {
         Integer maxValue = Collections.max(mapValues);
 
         for (String s : list) {
-            if (stringCount.get(s).equals(maxValue)) {
+            if (stringCount.get(s) == maxValue) {
                 return s;
             }
         }
+
+        return list[0];
         // Then iterate through
         // your counts to find the largest. You'll need a collection that allows
         // you to store a mapping from Strings to counts.

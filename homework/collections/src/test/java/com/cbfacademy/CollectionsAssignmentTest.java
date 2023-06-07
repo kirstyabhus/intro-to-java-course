@@ -39,7 +39,9 @@ public class CollectionsAssignmentTest {
         final boolean result = CollectionsAssignment.containsDuplicates(numbers);
         assertThat(result, is(true));
 
-        numbers.remove(12);
+        // Had to change this test line below because before it was removing
+        // the 12th INDEX instead of the object 12 from the list
+        numbers.remove(Integer.valueOf("12"));
         final boolean anotherResult = CollectionsAssignment.containsDuplicates(numbers);
         assertThat(anotherResult, is(false));
     }
