@@ -134,7 +134,7 @@ public class CollectionsAssignment {
             }
         }
 
-        return list[0];
+        return list.get(0);
         // Then iterate through
         // your counts to find the largest. You'll need a collection that allows
         // you to store a mapping from Strings to counts.
